@@ -1,24 +1,39 @@
-/*
- * Script para rodar arquivos de seed manualmente
+/**
+ * 🌱 Script para rodar todos os arquivos de seed da pasta `seed/`
  * 
- * Este arquivo executa scripts de seed localizados na pasta `seed/`.
- * Use para popular o banco de dados com dados iniciais (mapas do jogo (locais), gangs, orgs, configurações, etc).
- * Tudo que o que existir in-game que for pre-setado
- * Basta adicionar os arquivos de seed desejados dentro da função `main()` abaixo,
- * e rodar o script com: `node nome_desse_arquivo.js`
+ * Esse arquivo automatiza a execução de todos os scripts de seed
+ * encontrados na pasta `seed/` (exceto ele mesmo, seed.js).
  * 
+ * Serve para popular o banco de dados com dados iniciais importantes
+ * para o jogo, como mapas, organizações, gangs, configurações, etc.
+ * 
+ * Para adicionar novos seeds, basta colocar o arquivo `.js` na pasta `seed/`.
+ * 
+ * Para rodar todos os seeds em sequência, execute:
+ *   node seed/seed.js
+ * 
+ * Esse script vai encontrar todos os arquivos `.js` da pasta `seed/` e rodá-los
+ * automaticamente, facilitando o setup inicial do banco ou o reset dos dados.
  */
 
+
+import fs from 'fs';
+import path from 'path';
 import { execSync } from 'child_process';
 
+const seedDir = './seed';
+
 function runSeed(file) {
-  console.log(`Rodando seed: ${file}`);
-  execSync(`node seed/${file}`, { stdio: 'inherit' });
+  console.log(`🌱 Rodando seed: ${file}`);
+  execSync(`node ${path.join(seedDir, file)}`, { stdio: 'inherit' });
 }
 
 async function main() {
-  runSeed('seedExemplo.js');
-  // Adicione aqui outros seeds se quiser rodar vários em sequência
+  const files = fs.readdirSync(seedDir).filter(f => f.endsWith('.js') && f !== 'seed.js');
+
+  for (const file of files) {
+    runSeed(file);
+  }
 }
 
 main();

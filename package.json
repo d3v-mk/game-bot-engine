@@ -1,13 +1,12 @@
 {
-  "name": "projeto",
+  "name": "game-bot-engine",
   "version": "1.0.0",
-  "description": "Bot RPG via WhatsApp com banco de dados PostgreSQL + Prisma",
+  "description": "Game bot via WhatsApp com banco de dados PostgreSQL + Prisma",
   "main": "game/index.js",
   "type": "module",
   "scripts": {
-    "start": "node game/index.js",
-    "dev": "node game/index.js",
-    "seed": "node seed/seedJogador.js",
+    "game": "node game/index.js",
+    "seed": "node seed/seed.js",
     "migrate": "npx prisma migrate dev --name",
     "generate": "npx prisma generate",
     "studio": "npx prisma studio",
@@ -20,7 +19,7 @@
     "prisma",
     "postgres"
   ],
-  "author": "devsoulmk",
+  "author": "devmk",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.10.1",
