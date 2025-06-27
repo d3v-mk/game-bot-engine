@@ -1,0 +1,38 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "description": "Bot RPG via WhatsApp com banco de dados PostgreSQL + Prisma",
+  "main": "game/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node game/index.js",
+    "dev": "node game/index.js",
+    "seed": "node seed/seedJogador.js",
+    "migrate": "npx prisma migrate dev --name",
+    "generate": "npx prisma generate",
+    "studio": "npx prisma studio",
+    "prisma-tools": "node scripts/prisma-tools.js"
+  },
+  "keywords": [
+    "game",
+    "rpg",
+    "whatsapp",
+    "prisma",
+    "postgres"
+  ],
+  "author": "devsoulmk",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.10.1",
+    "bcrypt": "^6.0.0",
+    "prisma": "^6.10.1",
+    "qrcode-terminal": "^0.12.0",
+    "remove-accents": "^0.5.0",
+    "uuid": "^11.1.0",
+    "whatsapp-web.js": "^1.30.0"
+  },
+  "prisma": {
+    "schema": "db/prisma/schema.prisma",
+    "seed": "node seed/seed.js"
+  }
+}

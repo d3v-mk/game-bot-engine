@@ -1,0 +1,25 @@
+/// 🔧 Arquivo schema.prisma
+/// 
+/// Esse é o arquivo principal de configuração do Prisma.
+/// Aqui você define:
+/// - O banco de dados que será usado (datasource)
+/// - O client que será gerado (generator)
+/// - E todos os modelos do banco (model, enum, etc)
+/// 
+/// Quando você roda `npx prisma generate`, o Prisma cria automaticamente
+/// um client baseado neste schema, pronto pra fazer queries seguras e tipadas.
+///
+/// Quando você roda `npx prisma migrate dev`, ele gera e aplica as migrations
+/// com base nas mudanças nos modelos declarados aqui.
+///
+/// 📁 Normalmente fica na raiz da pasta `prisma/`, ex: `prisma/schema.prisma`
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
