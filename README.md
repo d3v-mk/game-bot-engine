@@ -16,6 +16,7 @@ Um **esqueleto de projeto** pronto para iniciar bots de jogo via WhatsApp.
 ✅ Comandos organizados por domínio  
 ✅ Serviços separados com lógica de negócio  
 ✅ Menu interativo via terminal (`prisma-tools.js`)
+✅ Bot local para testes (`local-bot.js`)
 
 ---
 
